@@ -14,7 +14,6 @@ A simple web application to play rounds of Rock, Paper, Scissors. Built with Jav
 - Java 17
 - Maven
 - Spring Boot
-- Spring Web
 - Thymeleaf
 - JUnit 5
 
