@@ -36,6 +36,10 @@ public class GameService {
         return new RoundResult(player1Move, player2Move, result);
     }
 
+    public void setGlobalStats(GlobalStats globalStats) {
+        this.globalStats = globalStats;
+    }
+
     public String determineWinner(Move player1Move, Move player2Move) {
         if (player1Move == player2Move) {
             return "Draw";

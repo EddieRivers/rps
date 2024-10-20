@@ -1,13 +1,23 @@
 package com.example.rps.service;
 
+import com.example.rps.model.GlobalStats;
 import com.example.rps.model.Move;
 import com.example.rps.model.RoundResult;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class GameServiceTest {
 
-    private final GameService gameService = new GameService();
+    private GameService gameService;
+    private GlobalStats globalStats;
+
+    @BeforeEach
+    public void setUp() {
+        globalStats = new GlobalStats();
+        gameService = new GameService();
+        gameService.setGlobalStats(globalStats);
+    }
 
     @Test
     public void testDetermineWinner_Draw() {
