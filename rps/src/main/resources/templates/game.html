@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <h1>Rock Paper Scissors</h1>
+    <p>Number of rounds played: <span th:text="${roundCount}">0</span></p>
+    <form action="/play" method="get">
+        <button type="submit">Play Round</button>
+    </form>
+    <form action="/restart" method="get">
+        <button type="submit">Restart Game</button>
+    </form>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Player 1 Move</th>
+                <th>Player 2 Move</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="round : ${rounds}">
+                <td th:text="${round.player1Move}"></td>
+                <td th:text="${round.player2Move}"></td>
+                <td th:text="${round.result}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
