@@ -1,5 +1,6 @@
 package com.example.rps.controller;
 
+import com.example.rps.model.GlobalStats;
 import com.example.rps.model.RoundResult;
 import com.example.rps.service.GameService;
 import jakarta.servlet.http.HttpSession;
@@ -16,6 +17,9 @@ public class GameController {
 
     @Autowired
     private GameService gameService;
+
+    @Autowired
+    private GlobalStats globalStats;
 
     @GetMapping("/")
     public String game(Model model, HttpSession session) {
@@ -50,5 +54,14 @@ public class GameController {
     public String restartGame(HttpSession session) {
         session.removeAttribute("rounds");
         return "redirect:/";
+    }
+
+    @GetMapping("/stats")
+    public String stats(Model model) {
+        model.addAttribute("totalRoundsPlayed", globalStats.getTotalRoundsPlayed());
+        model.addAttribute("totalWinsPlayer1", globalStats.getTotalWinsPlayer1());
+        model.addAttribute("totalWinsPlayer2", globalStats.getTotalWinsPlayer2());
+        model.addAttribute("totalDraws", globalStats.getTotalDraws());
+        return "stats";
     }
 }
