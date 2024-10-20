@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Global Statistics</title>
+</head>
+<body>
+    <h1>Global Statistics</h1>
+    <p>Total of rounds played: <span th:text="${totalRoundsPlayed}">0</span></p>
+    <p>Player 1 total wins: <span th:text="${totalWinsPlayer1}">0</span></p>
+    <p>Player 2 total wins: <span th:text="${totalWinsPlayer2}">0</span></p>
+    <p>Total draws: <span th:text="${totalDraws}">0</span></p>
+    <a href="/">Return to game</a>
+</body>
+</html>
